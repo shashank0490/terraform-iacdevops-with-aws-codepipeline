@@ -14,6 +14,6 @@ module "ec2-private-app1" {
 
   for_each = toset(["0", "1"])
   subnet_id = element(module.vpc.public_subnets, tonumber(each.key))
-  user_data = base64enccode(file("${path.module}/scripts/app1-install.sh"))
+  user_data = base64encode(file("${path.module}/scripts/app1-install.sh"))
 
 }
